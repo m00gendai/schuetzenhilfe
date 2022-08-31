@@ -39,7 +39,7 @@ export function Component_ShowCorrection(props){
             <table>
                 <thead>
                     <tr>
-                        <th>{`Korrekturschritte ${props.weaponSelect}`}</th>
+                        <th colSpan="2">{`Korrekturschritte ${props.weaponSelect}`}</th>
                     </tr>
                 </thead>
                 <tbody>

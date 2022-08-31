@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Component_OptionsMenu from "./Component_OptionsMenu"
+import Component_ShowCorrection from "./Component_ShowCorrection"
 import {getTargetPosition, calculateHit, setRandomTargetPosition} from "./coreLogic"
 
 import './App.css'
@@ -19,10 +20,6 @@ function App() {
     const hitValue = calculateHit(currentHit)
     currentHit.length > 0 ? document.getElementById("hit").innerText = hitValue < 0 ? "0" : hitValue : null
   }, [currentHit])
-
-  useEffect(() =>{
-    console.log(mode)
-  },[mode])
 
   return (
     <div id="mainContainer">
@@ -48,7 +45,12 @@ function App() {
         setCurrentHit(randomHitPosition)
       }}>Zufallstreffer</button>
       :
-      null}
+      mode == "real"
+      ?
+      <Component_ShowCorrection hitData={currentHit}/>
+      :
+      null
+      }
       {
         showOptions
         ?

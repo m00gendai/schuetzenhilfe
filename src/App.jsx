@@ -9,14 +9,25 @@ function App() {
 
   useEffect(() => {
     const hitValue = calculateHit(currentHit)
-    console.log(hitValue)
+    currentHit.length > 0 ? document.getElementById("hit").innerText = hitValue < 0 ? "0" : hitValue : null
   }, [currentHit])
 
   return (
     <div id="mainContainer">
       <div id="targetContainer" onClick={(e) =>{
-        setCurrentHit(getTargetPosition(e, e.target))
+        const targetPosition = getTargetPosition(e, e.target)
+        console.log(targetPosition)
+        setCurrentHit(targetPosition)
       }}>
+       { currentHit.length > 0
+        ?
+        <div id="hit" style={{
+          left: `${(currentHit[0]*2)}px`,
+          top: `${currentHit[1]*2}px`,
+        }}></div>
+        :
+        null
+       }
       </div>
       <button id="randomHit" onClick={() =>{
         const randomHitPosition = setRandomTargetPosition()

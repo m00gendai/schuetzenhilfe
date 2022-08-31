@@ -11,10 +11,15 @@ function App() {
   const [currentHit, setCurrentHit] = useState([])
   const [showOptions, setShowOptions] = useState(false)
   const [mode, setMode] = useState("real")
+  const [weapon, setWeapon] = useState("Sturmgewehr 90");
 
   const toggleOptions = () => {
     setShowOptions(!showOptions)
   }
+  
+  useEffect(() =>{
+    console.log(weapon)
+  },[weapon])
 
   useEffect(() => {
     const hitValue = calculateHit(currentHit)
@@ -47,14 +52,14 @@ function App() {
       :
       mode == "real"
       ?
-      <Component_ShowCorrection hitData={currentHit}/>
+      <Component_ShowCorrection hitData={currentHit} weaponSelect={weapon}/>
       :
       null
       }
       {
         showOptions
         ?
-        <Component_OptionsMenu exit={toggleOptions} openState={showOptions} modeSelect={mode} setMode={setMode}/>
+        <Component_OptionsMenu exit={toggleOptions} openState={showOptions} modeSelect={mode} setMode={setMode} weaponSelect={weapon} setWeapon={setWeapon}/>
         :
         null
       }

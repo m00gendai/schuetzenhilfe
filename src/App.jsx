@@ -12,6 +12,7 @@ function App() {
   const [showOptions, setShowOptions] = useState(false)
   const [mode, setMode] = useState("real")
   const [weapon, setWeapon] = useState("Sturmgewehr 90");
+  const [cursorPosition, setCursorPosition] = useState([])
 
   const toggleOptions = () => {
     setShowOptions(!showOptions)
@@ -29,14 +30,15 @@ function App() {
   return (
     <div id="mainContainer">
       <div id="targetContainer" onClick={(e) =>{
+        setCursorPosition([e.nativeEvent.clientX, e.nativeEvent.clientY])
         const targetPosition = getTargetPosition(e, e.target)
         setCurrentHit(targetPosition)
       }}>
        { currentHit.length > 0
         ?
         <div id="hit" style={{
-          left: `${(currentHit[0]*2)}px`,
-          top: `${currentHit[1]*2}px`,
+          left: `${(cursorPosition[0])}px`,
+          top: `${cursorPosition[1]}px`,
         }}></div>
         :
         null

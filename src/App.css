@@ -30,7 +30,7 @@
   text-align: center;
   border: 2px solid red;
   background: white;
-  transform: translate(-25%, -25%);
+  transform: translate(-50%, -50%);
 }
 
 #correctionContainer table {

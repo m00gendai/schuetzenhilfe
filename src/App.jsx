@@ -10,17 +10,21 @@ function App() {
 
   const [currentHit, setCurrentHit] = useState([])
   const [showOptions, setShowOptions] = useState(false)
-  const [mode, setMode] = useState("real")
-  const [weapon, setWeapon] = useState("Sturmgewehr 90");
+  const [mode, setMode] = useState(JSON.parse(localStorage.getItem("sh_mode")) ||"real")
+  const [weapon, setWeapon] = useState(JSON.parse(localStorage.getItem("sh_weapon_select")) || "Sturmgewehr 90")
   const [cursorPosition, setCursorPosition] = useState([])
 
   const toggleOptions = () => {
     setShowOptions(!showOptions)
   }
-  
+
   useEffect(() =>{
-    console.log(weapon)
+    localStorage.setItem("sh_weapon_select", JSON.stringify(weapon))
   },[weapon])
+
+  useEffect(() =>{
+    localStorage.setItem("sh_mode", JSON.stringify(weapon))
+  },[mode])
 
   useEffect(() => {
     const hitValue = calculateHit(currentHit)

@@ -7,11 +7,16 @@ import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
 import { weaponList } from "./weaponList.js"
+import { targetList } from "./targetList.js"
 
 export function Component_OptionsMenu(props){
 
     const weaponChoice = (event) => {
         props.setWeapon(event.target.value);
+    }
+
+    const targetChoice = (event) => {
+        props.setTarget(event.target.value);
     }
 
     return(
@@ -40,6 +45,25 @@ export function Component_OptionsMenu(props){
                             return a.designation > b.designation ? 1 : -1
                         }).map((weapon, index) => {
                             return <MenuItem key={index} value={weapon.designation}>{weapon.designation}</MenuItem>
+                        })
+                        }
+                        
+                    </Select>
+                </FormControl>
+                <FormControl sx={{margin: "1rem"}} fullWidth>
+                    <InputLabel id="selectTarget-label">Scheibe</InputLabel>
+                    <Select
+                        labelId="selectTarget-label"
+                        id="selectTarget"
+                        value={props.targetSelect}
+                        label="Scheibe"
+                        onChange={targetChoice}
+                    >
+                        {
+                        targetList.sort(function(a,b){
+                            return a.designation > b.designation ? 1 : -1
+                        }).map((target, index) => {
+                            return <MenuItem key={index} value={target.designation}>{target.name}</MenuItem>
                         })
                         }
                         

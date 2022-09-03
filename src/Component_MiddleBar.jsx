@@ -21,7 +21,7 @@ export function Component_MiddleBar(props){
                 <SouthEastIcon />
                 }
             </div>
-            <button className="middleBar_button" id="help" onClick={() => console.log("halp!")}>
+            <button className="middleBar_button" id="help" onClick={() => props.toggleHelp()}>
                 <HelpOutlineIcon />
             </button>
         </div>

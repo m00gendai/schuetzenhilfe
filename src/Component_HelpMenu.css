@@ -1,0 +1,23 @@
+#helpMenuVeil{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#helpMenuBody{
+    width: 90%;
+    height: 90%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    z-index: 101;
+}

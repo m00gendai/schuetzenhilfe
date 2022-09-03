@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import Component_OptionsMenu from "./Component_OptionsMenu"
+import Component_HelpMenu from "./Component_HelpMenu"
 import Component_ShowCorrection from "./Component_ShowCorrection"
 import Component_MiddleBar from "./Component_MiddleBar"
 import {getTargetPosition, calculateHit, setRandomTargetPosition} from "./coreLogic"
 
 import './App.css'
 import "./Component_OptionsMenu.css"
+import "./Component_HelpMenu.css"
 import "./Component_MiddleBar.css"
 import "./Component_ShowCorrection.css"
 
@@ -14,6 +16,7 @@ function App() {
   const [currentHit, setCurrentHit] = useState([])
   const [actualHit, setActualHit] = useState(null)
   const [showOptions, setShowOptions] = useState(false)
+  const [showHelp, setShowHelp] = useState(false)
   const [mode, setMode] = useState(JSON.parse(localStorage.getItem("sh_mode")) ||"real")
   const [weapon, setWeapon] = useState(JSON.parse(localStorage.getItem("sh_weapon_select")) || "Sturmgewehr 90")
   const [targetImage, setTargetImage] = useState(JSON.parse(localStorage.getItem("sh_target_select")) || "300m_A")
@@ -21,8 +24,13 @@ function App() {
   const [vertical, setVertical] = useState("")
   const [horizontal, setHorizontal] = useState("")
   const [direction, setDirection] = useState(null)
+  
   const toggleOptions = () => {
     setShowOptions(!showOptions)
+  }
+
+  const toggleHelp = () => {
+    setShowHelp(!showHelp)
   }
 
   useEffect(() =>{
@@ -71,7 +79,7 @@ function App() {
         null
        }
       </div>
-      <Component_MiddleBar toggleOptions={toggleOptions} hit={actualHit} direction={direction}/>
+      <Component_MiddleBar toggleOptions={toggleOptions} hit={actualHit} direction={direction} toggleHelp={toggleHelp}/>
       {mode == "game" 
       ?
       <button id="randomHit" onClick={() =>{
@@ -97,7 +105,17 @@ function App() {
           setWeapon={setWeapon}
           targetSelect={targetImage}
           setTarget={setTargetImage}
-          />
+        />
+        :
+        null
+      }
+      {
+        showHelp
+        ?
+        <Component_HelpMenu 
+          exit={toggleHelp}
+          openState={showHelp}
+        />
         :
         null
       }

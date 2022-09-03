@@ -6,16 +6,16 @@
   left: 0;
   margin: 0;
   padding: 0;
-  background: black;
+  background-color: #d9d9d9;
+  background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
   width: 100%;
   font-family: "Arial";
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
+  width: 100vw;
+  flex-direction: row;
 }
 #targetContainer{
   position: relative;

@@ -22,8 +22,6 @@ export function Component_ShowCorrection(props){
             {
             props.hitData.length > 0 
             ?
-            <>
-            <h2>{`Korrekturschritte ${props.weaponSelect}`}</h2>
             <div id="correctionDetails">
                 <div id="correctionDetailsSteps">
                     <Card className="correctionDetailsStep">
@@ -35,30 +33,7 @@ export function Component_ShowCorrection(props){
                         <span>{Math.abs(elevationAdust)}</span>
                     </Card>
                 </div>
-                <div id="correctionDetailsInfos">
-                    <div className="correctionDetailsInfo">
-                        <span>Seitenkorrektur:</span>
-                        <span>{
-                            weaponList.map((weapon) => {
-                                if(weapon.designation == props.weaponSelect){
-                                    return `${weapon.windage}`
-                                }
-                            })
-                        }</span>
-                    </div>
-                    <div className="correctionDetailsInfo">
-                        <span>Höhenkorrektur:</span>
-                        <span>{
-                            weaponList.map((weapon) => {
-                                if(weapon.designation == props.weaponSelect){
-                                    return `${weapon.elevation}`
-                                }
-                            })
-                        }</span>
-                    </div>
-                </div>
             </div>
-            </>
             :
             <div className="placeholder">
                 Auf die Scheibe tippen, um den Treffer festzulegen

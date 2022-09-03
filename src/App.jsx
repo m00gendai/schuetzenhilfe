@@ -23,7 +23,7 @@ function App() {
   },[weapon])
 
   useEffect(() =>{
-    localStorage.setItem("sh_mode", JSON.stringify(weapon))
+    localStorage.setItem("sh_mode", JSON.stringify(mode))
   },[mode])
 
   useEffect(() => {

@@ -1,21 +1,6 @@
-export function Component_ShowCorrection(props){
+import { weaponList } from "./weaponList.js"
 
-     const weaponList = [
-        {
-            designation: "Sturmgewehr 90",
-            windage: "4.5cm pro Klick",
-            windageStep: 4.5,
-            elevation: "4.5cm pro Klick",
-            elevationStep: 4.5
-        },
-        {
-            designation: "Sturmgewehr 57/02",
-            windage: "6cm pro Raste",
-            windageStep: 6.0,
-            elevation: "8cm pro Raste",
-            elevationStep: 8.0
-        },
-    ]
+export function Component_ShowCorrection(props){
 
     // coordinate system from 0-200 so step*2 
     console.log(props.weaponSelect)

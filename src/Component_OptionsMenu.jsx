@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
+import { weaponList } from "./weaponList.js"
 
 export function Component_OptionsMenu(props){
 
@@ -34,8 +35,14 @@ export function Component_OptionsMenu(props){
                         label="Waffe/Diopter"
                         onChange={weaponChoice}
                     >
-                        <MenuItem value={"Sturmgewehr 90"}>Sturmgewehr 90</MenuItem>
-                        <MenuItem value={"Sturmgewehr 57/02"}>Sturmgewehr 57/02</MenuItem>
+                        {
+                        weaponList.sort(function(a,b){
+                            return a.designation > b.designation ? 1 : -1
+                        }).map((weapon, index) => {
+                            return <MenuItem key={index} value={weapon.designation}>{weapon.designation}</MenuItem>
+                        })
+                        }
+                        
                     </Select>
                 </FormControl>
                 <Button sx={{margin: "1rem"}} variant="contained" id="exitOptions" onClick={() => props.exit(!props.openState)}>OK</Button>

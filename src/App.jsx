@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Component_OptionsMenu from "./Component_OptionsMenu"
 import Component_ShowCorrection from "./Component_ShowCorrection"
+import Component_MiddleBar from "./Component_MiddleBar"
 import {getTargetPosition, calculateHit, setRandomTargetPosition} from "./coreLogic"
 
 import './App.css'
 import "./Component_OptionsMenu.css"
+import "./Component_MiddleBar.css"
 
 function App() {
 
@@ -48,7 +50,7 @@ function App() {
         null
        }
       </div>
-      <button id="options" onClick={() => toggleOptions()}>Optionen</button>
+      <Component_MiddleBar toggleOptions={toggleOptions} />
       {mode == "game" 
       ?
       <button id="randomHit" onClick={() =>{

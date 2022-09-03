@@ -1,0 +1,19 @@
+#middleBar{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 2px 5px 1px black;
+    border-top: 2px solid black;
+    height: 3rem;
+    margin: 0 0 1rem 0;
+}
+
+.middleBar_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    aspect-ratio: 1/1;
+}

@@ -1,0 +1,93 @@
+#correctionContainer{
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #d9d9d9;
+    background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+    flex-direction: row;
+}
+
+#correctionContainer h2{
+    width: 80%;
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+
+#correctionDetails{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#correctionDetailsSteps{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    margin: 2rem 0 2rem 0;
+}
+
+.correctionDetailsStep{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    aspect-ratio: 1/1;
+    box-shadow: 0px 0px 5px 0px black;
+    flex-direction: column;
+}
+
+.correctionDetailsStep>span{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.correctionDetailsStep>span:nth-child(2){
+    width: 100%;
+    font-size: 4em;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#correctionDetailsInfos{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    margin: 2rem 0 2rem 0;
+}
+
+.correctionDetailsInfo{
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.correctionDetailsInfo span{
+    position: relative;
+    width: 100%;
+}
+
+.placeholder{
+    margin: 2rem 0 0 0;
+}

@@ -1,9 +1,10 @@
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import { weaponList } from "./weaponList.js"
 
 export function Component_ShowCorrection(props){
 
     // coordinate system from 0-200 so step*2 
-    console.log(props.weaponSelect)
     let stepsWindage
     let stepsElevation 
     weaponList.forEach(weapon => {
@@ -21,45 +22,43 @@ export function Component_ShowCorrection(props){
             {
             props.hitData.length > 0 
             ?
-            <table>
-                <thead>
-                    <tr>
-                        <th colSpan="2">{`Korrekturschritte ${props.weaponSelect}`}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bei {props.hitData[0] < 100 ? "links" : "rechts"}</td>
-                        <td>{Math.abs(windageAdjust)}</td>
-                    </tr>
-                    <tr>
-                        <td>Bei {props.hitData[1] < 100 ? "hoch" : "tief"}</td>
-                        <td>{Math.abs(elevationAdust)}</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Seitenkorrektur:</td>
-                        <td>{
+            <>
+            <h2>{`Korrekturschritte ${props.weaponSelect}`}</h2>
+            <div id="correctionDetails">
+                <div id="correctionDetailsSteps">
+                    <Card className="correctionDetailsStep">
+                        <span>Bei {props.hitData[0] < 100 ? "links" : "rechts"}</span>
+                        <span>{Math.abs(windageAdjust)}</span>
+                    </Card>
+                    <Card className="correctionDetailsStep">
+                        <span>Bei {props.hitData[1] < 100 ? "hoch" : "tief"}</span>
+                        <span>{Math.abs(elevationAdust)}</span>
+                    </Card>
+                </div>
+                <div id="correctionDetailsInfos">
+                    <div className="correctionDetailsInfo">
+                        <span>Seitenkorrektur:</span>
+                        <span>{
                             weaponList.map((weapon) => {
                                 if(weapon.designation == props.weaponSelect){
                                     return `${weapon.windage}`
                                 }
                             })
-                        }</td>
-                    </tr>
-                    <tr>
-                        <td>Höhenkorrektur:</td>
-                        <td>{
+                        }</span>
+                    </div>
+                    <div className="correctionDetailsInfo">
+                        <span>Höhenkorrektur:</span>
+                        <span>{
                             weaponList.map((weapon) => {
                                 if(weapon.designation == props.weaponSelect){
                                     return `${weapon.elevation}`
                                 }
                             })
-                        }</td>
-                    </tr>
-                </tfoot>
-            </table>
+                        }</span>
+                    </div>
+                </div>
+            </div>
+            </>
             :
             <div className="placeholder">
                 Auf die Scheibe tippen, um den Treffer festzulegen

@@ -7,6 +7,7 @@ import {getTargetPosition, calculateHit, setRandomTargetPosition} from "./coreLo
 import './App.css'
 import "./Component_OptionsMenu.css"
 import "./Component_MiddleBar.css"
+import "./Component_ShowCorrection.css"
 
 function App() {
 

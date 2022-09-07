@@ -19,6 +19,10 @@ export function Component_OptionsMenu(props){
         props.setTarget(event.target.value);
     }
 
+    const distanceChoice = (event) => {
+        props.setDistance(event.target.value)
+    }
+
     return(
         <div id="optionsMenuVeil">
             <div id="optionsMenuBody">
@@ -28,6 +32,25 @@ export function Component_OptionsMenu(props){
                 </Divider>
                 <Button sx={{margin: "1rem"}} variant="contained" id="modeReal" onClick={() => props.setMode("real")}>Ernst</Button>
                 <Button disabled sx={{margin: "1rem"}} variant="contained" id="modeGame" onClick={() => props.setMode("game")}>Spiel</Button>
+                <Divider sx={{width: "100%"}}>
+                        Distanz
+                    </Divider>
+                    <FormControl sx={{margin: "1rem"}} fullWidth>
+                        <InputLabel id="selectWeapon-label">Distanz</InputLabel>
+                        <Select
+                        labelId="selectDistance-label"
+                        id="selectDistance"
+                        value={props.distanceSelect}
+                        label="DIstanz"
+                        onChange={distanceChoice}
+                    >
+                         <MenuItem key={"dist1"} value={300}>300m</MenuItem>
+                         <MenuItem key={"dist2"} value={50}>50m</MenuItem>
+                         <MenuItem key={"dist3"} value={25}>25m</MenuItem>
+                       
+                        
+                    </Select>
+                    </FormControl>
                 <Divider sx={{width: "100%"}}>
                         Waffe/Diopter
                     </Divider>

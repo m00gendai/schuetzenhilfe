@@ -20,6 +20,7 @@ function App() {
   const [mode, setMode] = useState(JSON.parse(localStorage.getItem("sh_mode")) ||"real")
   const [weapon, setWeapon] = useState(JSON.parse(localStorage.getItem("sh_weapon_select")) || "Sturmgewehr 90")
   const [targetImage, setTargetImage] = useState(JSON.parse(localStorage.getItem("sh_target_select")) || "300m_A")
+  const [distance, setDistance] = useState(JSON.parse(localStorage.getItem("sh_distance_select")) || "300m")
   const [cursorPosition, setCursorPosition] = useState([])
   const [vertical, setVertical] = useState("")
   const [horizontal, setHorizontal] = useState("")
@@ -44,6 +45,10 @@ function App() {
   useEffect(() =>{
     localStorage.setItem("sh_target_select", JSON.stringify(targetImage))
   },[targetImage])
+
+  useEffect(() =>{
+    localStorage.setItem("sh_distance_select", JSON.stringify(distance))
+  },[distance])
 
   useEffect(() => {
     const hitValue = calculateHit(currentHit)
@@ -89,7 +94,7 @@ function App() {
       :
       mode == "real"
       ?
-      <Component_ShowCorrection hitData={currentHit} weaponSelect={weapon}/>
+      <Component_ShowCorrection hitData={currentHit} weaponSelect={weapon} distanceSelect={distance}/>
       :
       null
       }
@@ -105,6 +110,8 @@ function App() {
           setWeapon={setWeapon}
           targetSelect={targetImage}
           setTarget={setTargetImage}
+          setDistance={setDistance}
+          distanceSelect={distance}
         />
         :
         null

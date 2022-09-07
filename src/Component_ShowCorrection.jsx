@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { weaponList } from "./weaponList.js"
@@ -9,17 +10,20 @@ export function Component_ShowCorrection(props){
     let stepsElevation 
     let stepWindageInfo
     let stepElevationInfo
+    let baseDistance
+    
     weaponList.forEach(weapon => {
         if(weapon.designation == props.weaponSelect){
             stepsWindage = weapon.windageStep*2
             stepsElevation = weapon.elevationStep*2
             stepWindageInfo = weapon.windage
             stepElevationInfo = weapon.elevation
+            baseDistance = weapon.base
         }
     })
-   
-    const windageAdjust = Math.round((100-props.hitData[0])/stepsWindage)
-    const elevationAdust = Math.round((100-props.hitData[1])/stepsElevation)
+   let baseDistanceFactor = props.distanceSelect/baseDistance
+    const windageAdjust = Math.round(((100-props.hitData[0])/stepsWindage/baseDistanceFactor))
+    const elevationAdust = Math.round(((100-props.hitData[1])/stepsElevation/baseDistanceFactor))
 
     return(
         <div id="correctionContainer">
@@ -27,7 +31,7 @@ export function Component_ShowCorrection(props){
             props.hitData.length > 0 
             ?
             <div id="correctionDetails">
-                <h2>{props.weaponSelect}</h2>
+                <h2>{`${props.distanceSelect}m`} {props.weaponSelect}</h2>
                 <div id="correctionDetailsSteps">
                     <Card className="correctionDetailsStep">
                         <span>Bei {props.hitData[0] < 100 ? "links" : "rechts"}</span>
@@ -38,8 +42,8 @@ export function Component_ShowCorrection(props){
                         <span>{Math.abs(elevationAdust)}</span>
                     </Card>
                 </div>
-                <span>Seitenkorrektur: {stepWindageInfo}</span>
-                <span>Höhenkorrektur: {stepElevationInfo}</span>
+                <span>Seitenkorrektur: {`${((stepsWindage/2)*baseDistanceFactor).toFixed(2)}cm pro Raste`}</span>
+                <span>Höhenkorrektur: {`${((stepsElevation/2)*baseDistanceFactor).toFixed(2)}cm pro Raste`}</span>
             </div>
             :
             <div className="placeholder">

@@ -1,14 +1,25 @@
+html, body{
+  height: 100vh;
+      overflow-y: hidden;
+      position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+}
+
+#root{
+  display: relative;
+  height: 100%;
+
+}
 #mainContainer{
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
+  position: relative;
+  height: 100%;
   background-color: #d9d9d9;
   background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
-  width: 100%;
   font-family: "Arial";
   display: flex;
   flex-wrap: wrap;
@@ -38,8 +49,4 @@
   border: 2px solid red;
   background: white;
   transform: translate(-50%, -50%);
-}
-
-#correctionContainer table {
-  width: 100%;
 }

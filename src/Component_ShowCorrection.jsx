@@ -7,10 +7,14 @@ export function Component_ShowCorrection(props){
     // coordinate system from 0-200 so step*2 
     let stepsWindage
     let stepsElevation 
+    let stepWindageInfo
+    let stepElevationInfo
     weaponList.forEach(weapon => {
         if(weapon.designation == props.weaponSelect){
             stepsWindage = weapon.windageStep*2
             stepsElevation = weapon.elevationStep*2
+            stepWindageInfo = weapon.windage
+            stepElevationInfo = weapon.elevation
         }
     })
    
@@ -23,6 +27,7 @@ export function Component_ShowCorrection(props){
             props.hitData.length > 0 
             ?
             <div id="correctionDetails">
+                <h2>{props.weaponSelect}</h2>
                 <div id="correctionDetailsSteps">
                     <Card className="correctionDetailsStep">
                         <span>Bei {props.hitData[0] < 100 ? "links" : "rechts"}</span>
@@ -33,6 +38,8 @@ export function Component_ShowCorrection(props){
                         <span>{Math.abs(elevationAdust)}</span>
                     </Card>
                 </div>
+                <span>Seitenkorrektur: {stepWindageInfo}</span>
+                <span>Höhenkorrektur: {stepElevationInfo}</span>
             </div>
             :
             <div className="placeholder">

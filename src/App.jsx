@@ -20,7 +20,7 @@ function App() {
   const [mode, setMode] = useState(JSON.parse(localStorage.getItem("sh_mode")) ||"real")
   const [weapon, setWeapon] = useState(JSON.parse(localStorage.getItem("sh_weapon_select")) || "Sturmgewehr 90")
   const [targetImage, setTargetImage] = useState(JSON.parse(localStorage.getItem("sh_target_select")) || "300m_A")
-  const [distance, setDistance] = useState(JSON.parse(localStorage.getItem("sh_distance_select")) || "300m")
+  const [distance, setDistance] = useState(JSON.parse(localStorage.getItem("sh_distance_select")) || 300)
   const [cursorPosition, setCursorPosition] = useState([])
   const [vertical, setVertical] = useState("")
   const [horizontal, setHorizontal] = useState("")

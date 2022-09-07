@@ -10,6 +10,10 @@
     overflow-y: scroll;
 }
 
+#correctionContainer > h2{
+    text-align: center;
+}
+
 #correctionDetails{
     position: relative;
     width: 100%;

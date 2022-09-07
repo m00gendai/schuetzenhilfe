@@ -1,50 +1,62 @@
 export const weaponList = [
     {
-        designation: "Sturmgewehr 90",
-        windage: "4.5cm pro Klick",
+        designation: "G - Sturmgewehr 90",
         windageStep: 4.5,
-        elevation: "4.5cm pro Klick",
         elevationStep: 4.5,
         base: 300
     },
     {
-        designation: "Sturmgewehr 57/02",
-        windage: "6cm pro Raste",
+        designation: "G - Sturmgewehr 57/02",
         windageStep: 6.0,
-        elevation: "8cm pro Raste",
         elevationStep: 8.0,
         base: 300
     },
     {
-        designation: "Diopter Wyss Flex",
-        windage: "1cm pro Klick",
+        designation: "D - Wyss Flex",
         windageStep: 1.0,
-        elevation: "1cm pro Klick",
         elevationStep: 1.0,
         base: 300
     },
     {
-        designation: "Diopter Anschütz 6805",
-        windage: "1.2cm pro Klick",
+        designation: "D - Anschütz 6805",
         windageStep: 1.2,
-        elevation: "1.2cm pro Klick",
         elevationStep: 1.2,
         base: 300
     },
     {
-        designation: "Diopter W+F K31",
-        windage: "2cm pro Klick",
+        designation: "D - W+F K31",
         windageStep: 2.0,
-        elevation: "2cm pro Klick",
         elevationStep: 2.0,
         base: 300
     },
     {
-        designation: "Hämmerli SP20",
-        windage: "8mm pro Raste",
+        designation: "P - Hämmerli SP20",
         windageStep: 0.8,
-        elevation: "1cm pro Raste",
         elevationStep: 1.0,
         base: 25
+    },
+    {
+        designation: "P - Pardini SP",
+        windageStep: 0.5,
+        elevationStep: 0.5,
+        base: 25
+    },
+    {
+        designation: "D - Dobler Mikrometer-Visier zu P210",
+        windageStep: 1.5,
+        elevationStep: 1.5,
+        base: 25
+    },
+    {
+        designation: "ZF - 1/4 MOA",
+        windageStep: 2.54/4,
+        elevationStep: 2.54/4,
+        base: 91.44
+    },
+    {
+        designation: "ZF - 1 MRAD",
+        windageStep: 1.0,
+        elevationStep: 1.0,
+        base: 100
     },
 ]

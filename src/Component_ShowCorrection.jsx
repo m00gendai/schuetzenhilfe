@@ -27,11 +27,13 @@ export function Component_ShowCorrection(props){
 
     return(
         <div id="correctionContainer">
+                           <h2>{`${props.distanceSelect}m`} {props.weaponSelect}</h2>
             {
+
             props.hitData.length > 0 
             ?
             <div id="correctionDetails">
-                <h2>{`${props.distanceSelect}m`} {props.weaponSelect}</h2>
+ 
                 <div id="correctionDetailsSteps">
                     <Card className="correctionDetailsStep">
                         <span>Bei {props.hitData[0] < 100 ? "links" : "rechts"}</span>

@@ -47,6 +47,7 @@ export function Component_OptionsMenu(props){
                          <MenuItem key={"dist1"} value={300}>300m</MenuItem>
                          <MenuItem key={"dist2"} value={50}>50m</MenuItem>
                          <MenuItem key={"dist3"} value={25}>25m</MenuItem>
+                         <MenuItem key={"dist1"} value={100}>100m</MenuItem>
                        
                         
                     </Select>

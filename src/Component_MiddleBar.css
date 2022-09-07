@@ -5,7 +5,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: linear-gradient(135deg, rgba(149, 149, 149, 1) 0%, rgba(13, 13, 13, 1) 46%, rgba(1, 1, 1, 1) 50%, rgba(10, 10, 10, 1) 53%, rgba(78, 78, 78, 1) 76%, rgba(56, 56, 56, 1) 87%, rgba(27, 27, 27, 1) 100%);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
     height: 3rem;
     z-index: 2;
@@ -29,6 +29,7 @@
     justify-content: space-around;
     align-items: center;
     font-family: "Arial";
+    color: white;
 }
 
 #detailedHit_100{

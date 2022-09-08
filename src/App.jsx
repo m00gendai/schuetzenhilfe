@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import Component_OptionsMenu from "./Component_OptionsMenu"
 import Component_HelpMenu from "./Component_HelpMenu"
 import Component_ShowCorrection from "./Component_ShowCorrection"
+import Component_ShowController from "./Component_ShowController"
 import Component_MiddleBar from "./Component_MiddleBar"
 import {getTargetPosition, calculateHit, setRandomTargetPosition} from "./coreLogic"
+import { weaponList } from "./weaponList"
 
 import './App.css'
 import "./Component_OptionsMenu.css"
@@ -25,7 +27,13 @@ function App() {
   const [vertical, setVertical] = useState("")
   const [horizontal, setHorizontal] = useState("")
   const [direction, setDirection] = useState(null)
-  
+  const [currentWeaponProperties, setCurrentWeaponProperties] = useState(JSON.parse(localStorage.getItem("sh_weapon_properties")) || {
+        designation: "G - Sturmgewehr 90",
+        windageStep: 4.5,
+        elevationStep: 4.5,
+        base: 300
+    })
+
   const toggleOptions = () => {
     setShowOptions(!showOptions)
   }
@@ -36,6 +44,14 @@ function App() {
 
   useEffect(() =>{
     localStorage.setItem("sh_weapon_select", JSON.stringify(weapon))
+    const thisCurrentWeapon = weaponList.filter(weaponItem => {
+        if(weaponItem.designation == weapon){
+            return weaponItem
+        }
+    })
+    localStorage.setItem("sh_weapon_properties", JSON.stringify(thisCurrentWeapon[0]))
+    setCurrentWeaponProperties(thisCurrentWeapon[0])
+    
   },[weapon])
 
   useEffect(() =>{
@@ -87,11 +103,8 @@ function App() {
       <Component_MiddleBar toggleOptions={toggleOptions} hit={actualHit} direction={direction} toggleHelp={toggleHelp}/>
       {mode == "game" 
       ?
-      <button id="randomHit" onClick={() =>{
-        const randomHitPosition = setRandomTargetPosition()
-        setCurrentHit(randomHitPosition)
-      }}>Zufallstreffer</button>
-      :
+      <Component_ShowController weapon={currentWeaponProperties} distance={distance} setCurrentHit={setCurrentHit} setCursorPosition={setCursorPosition}/>
+     :
       mode == "real"
       ?
       <Component_ShowCorrection hitData={currentHit} weaponSelect={weapon} distanceSelect={distance}/>

@@ -31,7 +31,7 @@ export function Component_OptionsMenu(props){
                     Modus
                 </Divider>
                 <Button sx={{margin: "1rem"}} variant="contained" id="modeReal" onClick={() => props.setMode("real")}>Ernst</Button>
-                <Button disabled sx={{margin: "1rem"}} variant="contained" id="modeGame" onClick={() => props.setMode("game")}>Spiel</Button>
+                <Button sx={{margin: "1rem"}} variant="contained" id="modeGame" onClick={() => props.setMode("game")}>Spiel</Button>
                 <Divider sx={{width: "100%"}}>
                         Distanz
                     </Divider>
@@ -47,7 +47,7 @@ export function Component_OptionsMenu(props){
                          <MenuItem key={"dist1"} value={300}>300m</MenuItem>
                          <MenuItem key={"dist2"} value={50}>50m</MenuItem>
                          <MenuItem key={"dist3"} value={25}>25m</MenuItem>
-                         <MenuItem key={"dist1"} value={100}>100m</MenuItem>
+                         <MenuItem key={"dist4"} value={100}>100m</MenuItem>
                        
                         
                     </Select>
